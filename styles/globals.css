@@ -1,0 +1,101 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /*  Brand colours */
+    /* PRIMARY: #10327f — exact logo blue. Never change or approximate. */
+    --color-primary:        #10327f;
+    --color-primary-dark:   #0a2160;
+    --color-primary-light:  #1a3f94;
+
+    --color-accent:         #5AB22E;
+    --color-accent-dark:    #3A8010;
+    --color-accent-light:   #EBF7E1;
+
+    --color-cream:          #FBFAF6;
+    --color-cream-2:        #F4EEE2;
+    --color-border:         #cdd4ec;
+    --color-text:           #0a2160;
+    --color-muted:          #4f6099;
+    --color-white:          #ffffff;
+
+    /* Shadcn var overrides  */
+    --background:             var(--color-cream);
+    --foreground:             var(--color-text);
+    --primary:                var(--color-primary);
+    --primary-foreground:     var(--color-white);
+    --secondary:              var(--color-cream-2);
+    --secondary-foreground:   var(--color-text);
+    --accent:                 var(--color-accent-light);
+    --accent-foreground:      var(--color-primary);
+    --muted:                  var(--color-cream-2);
+    --muted-foreground:       var(--color-muted);
+    --border:                 var(--color-border);
+    --input:                  var(--color-border);
+    --ring:                   var(--color-primary);
+    --destructive:            #dc2626;
+    --destructive-foreground: var(--color-white);
+    --card:                   var(--color-white);
+    --card-foreground:        var(--color-text);
+    --popover:                var(--color-white);
+    --popover-foreground:     var(--color-text);
+
+
+
+    /* Spacing */
+    --space-xs:   4px;
+    --space-sm:   8px;
+    --space-md:   16px;
+    --space-lg:   24px;
+    --space-xl:   40px;
+    --space-2xl:  64px;
+
+    /*  Border radius  */
+    --radius:     10px;   /* Shadcn uses --radius */
+    --radius-sm:  6px;
+    --radius-md:  10px;
+    --radius-lg:  14px;
+    --radius-xl:  20px;
+
+    /*  Shadows */
+    --shadow-sm:  0 1px 3px rgba(16, 50, 127, 0.08);
+    --shadow-md:  0 4px 16px rgba(16, 50, 127, 0.12);
+    --shadow-lg:  0 8px 32px rgba(16, 50, 127, 0.16);
+  }
+
+  /* Base styles  */
+  * {
+    border-color: var(--color-border);
+  }
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    color: var(--color-primary-dark);
+  }
+
+  /*  Focus ring  */
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+  }
+
+  /*  Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration:        0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration:       0.01ms !important;
+      scroll-behavior:           auto !important;
+    }
+  }
+}
