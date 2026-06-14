@@ -4,24 +4,40 @@
 
 @layer base {
   :root {
-    /*  Brand colours */
-    /* PRIMARY: #10327f — exact logo blue. Never change or approximate. */
-    --color-primary:        #10327f;
-    --color-primary-dark:   #0a2160;
-    --color-primary-light:  #1a3f94;
+    /* ── Brand colours (extracted from mockup design file) ── */
+    --color-primary:        #16335A;   /* Main navy — headings, nav, footer */
+    --color-primary-dark:   #0E2746;   /* Deeper navy — gradients, hover */
+    --color-primary-light:  #1E4E8C;   /* Lighter navy — icon strokes on blue-tint bg */
 
-    --color-accent:         #5AB22E;
-    --color-accent-dark:    #3A8010;
-    --color-accent-light:   #EBF7E1;
+    --color-accent:         #4C9A2A;   /* Main green — CTAs, labels, links */
+    --color-accent-dark:    #3C7A1E;   /* Dark green — text on light backgrounds */
+    --color-accent-light:   #EAF3E2;   /* Light green — icon backgrounds, badge bg */
+    --color-accent-muted:   #7FB04E;   /* Muted green — on dark navy backgrounds */
 
-    --color-cream:          #FBFAF6;
-    --color-cream-2:        #F4EEE2;
-    --color-border:         #cdd4ec;
-    --color-text:           #0a2160;
-    --color-muted:          #4f6099;
+    --color-cream:          #FBFAF6;   /* Warm beige — page background */
+    --color-cream-2:        #F4EEE2;   /* Warm sand — alternate section backgrounds */
+
+    /* Borders */
+    --color-border:         #EFE7D7;   /* Warm beige card borders */
+    --color-border-nav:     #ECE4D5;   /* Navbar bottom border */
+
+    /* Text */
+    --color-text:           #1F2A3A;   /* Primary body text — warm dark */
+    --color-muted:          #6B6456;   /* Secondary body text — warm grey-brown */
+    --color-tan:            #9C8B6E;   /* Credentials, section labels on cream */
+
+    /* On-dark text (for navy backgrounds) */
+    --color-on-dark:        #C7D6EC;   /* Body text on dark */
+    --color-on-dark-dim:    #5E75A0;   /* Dimmed text on dark (footer copyright) */
+    --color-on-dark-label:  #7E97B8;   /* Section labels on dark */
+
+    /* Utility */
     --color-white:          #ffffff;
+    --color-blue-light-bg:  #E7EEF7;   /* Blue-tinted icon backgrounds */
+    --color-red-light-bg:   #FCEBEA;   /* Emergency icon background */
+    --color-emergency:      #C0392B;   /* Emergency icon stroke */
 
-    /* Shadcn var overrides  */
+    /* ── Shadcn CSS variable overrides ── */
     --background:             var(--color-cream);
     --foreground:             var(--color-text);
     --primary:                var(--color-primary);
@@ -42,9 +58,7 @@
     --popover:                var(--color-white);
     --popover-foreground:     var(--color-text);
 
-
-
-    /* Spacing */
+    /* ── Spacing ── */
     --space-xs:   4px;
     --space-sm:   8px;
     --space-md:   16px;
@@ -52,44 +66,40 @@
     --space-xl:   40px;
     --space-2xl:  64px;
 
-    /*  Border radius  */
-    --radius:     10px;   /* Shadcn uses --radius */
+    /* ── Border radius ── */
+    --radius:     10px;   /* Shadcn default */
     --radius-sm:  6px;
     --radius-md:  10px;
     --radius-lg:  14px;
     --radius-xl:  20px;
 
-    /*  Shadows */
-    --shadow-sm:  0 1px 3px rgba(16, 50, 127, 0.08);
-    --shadow-md:  0 4px 16px rgba(16, 50, 127, 0.12);
-    --shadow-lg:  0 8px 32px rgba(16, 50, 127, 0.16);
+    /* ── Shadows ── */
+    --shadow-sm:  0 1px 3px rgba(22, 51, 90, 0.08);
+    --shadow-md:  0 18px 40px -30px rgba(22, 51, 90, 0.4);
+    --shadow-lg:  0 36px 70px -34px rgba(22, 51, 90, 0.5);
   }
 
-  /* Base styles  */
-  * {
-    border-color: var(--color-border);
+  /* ── Base styles ── */
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-
-body {
-  background-color: var(--color-cream);
-  color: var(--color-text);
-  font-family: var(--font-sans);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    color: var(--color-primary-dark);
+    color: var(--color-primary);
   }
 
-  /*  Focus ring  */
+  /* ── Focus ring (WCAG 2.1 AA) ── */
   :focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 2px;
   }
 
-  /*  Reduced motion */
+  /* ── Reduced motion ── */
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
       animation-duration:        0.01ms !important;
